@@ -28,19 +28,23 @@ export default class CameraKitCamera extends React.Component {
   }
 
   static async requestDeviceCameraAuthorization() {
-    return await NativeCameraModule.requestDeviceCameraAuthorization();
+    const usersAuthorizationAnswer = await NativeCameraModule.requestDeviceCameraAuthorization();
+    return usersAuthorizationAnswer;
   }
 
   async capture(saveToCameraRoll = true) {
-    return await NativeCameraModule.capture(saveToCameraRoll);
+    const imageTmpPath = await NativeCameraModule.capture(saveToCameraRoll);
+    return imageTmpPath;
   }
 
   async changeCamera() {
-    return await NativeCameraModule.changeCamera();
+    const success = await NativeCameraModule.changeCamera();
+    return success;
   }
 
   async setFlashMode(flashMode = 'auto') {
-    return await NativeCameraModule.setFlashMode(flashMode);
+    const success = await NativeCameraModule.setFlashMode(flashMode);
+    return success;
   }
 
   static async checkDeviceCameraAuthorizationStatus() {
@@ -48,6 +52,7 @@ export default class CameraKitCamera extends React.Component {
   }
 
   static async hasCameraPermission() {
-    return await NativeCameraModule.hasCameraPermission();
+    const success = await NativeCameraModule.hasCameraPermission();
+    return success;
   }
 }

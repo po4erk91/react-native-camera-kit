@@ -47,11 +47,13 @@ export default class CameraKitGalleryView extends Component {
   }
 
   async getSelectedImages() {
-    return await GalleryViewManager.getSelectedImages();
+    const selectedImages = await GalleryViewManager.getSelectedImages();
+    return selectedImages;
   }
 
   async refreshGalleryView(selectedImages = []) {
-    return await GalleryViewManager.refreshGalleryView(selectedImages);
+    const isSuccess = await GalleryViewManager.refreshGalleryView(selectedImages);
+    return isSuccess;
   }
 
   modifyGalleryViewContentOffset (offset) {
